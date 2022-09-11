@@ -102,7 +102,6 @@ async def get_voice(model_index: int, text: str, character: str, speed: int = 1)
                 recv_msg = await websocket.recv()
                 try:
                     recv_json = json.loads(recv_msg)
-                    print(recv_json)
                 except Exception as e:
                     traceback.print_exc()
                     continue
@@ -184,7 +183,6 @@ async def _get_voice(session: CommandSession):
     try:
         char_name = fn_index[title_index]["character"][char_index]
         internal_index = fn_index[title_index]["index"]
-        print(char_name)
     except Exception as e:
         session.finish("角色或作品不存在哟，请检查输入~")
     session.finish(
